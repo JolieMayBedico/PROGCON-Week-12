@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="PROGCON-Week-12 (1)"/>
+        <attribute name="authors" value="Rams"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-05 10:32:58 AM"/>
+        <attribute name="created" value="UmFtcztDT01MQUIzMTQwQzI2OzIwMjYtMTAtMDU7MDk6NTY6NDggQU07MjQ4MQ=="/>
+        <attribute name="edited" value="UmFtcztDT01MQUIzMTQwQzI2OzIwMjYtMTAtMDU7MTA6MzI6NTggQU07MTsyNTc2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="box1" type="String" array="False" size=""/>
+            <declare name="box2" type="String" array="False" size=""/>
+            <declare name="box3" type="String" array="False" size=""/>
+            <declare name="choice" type="Integer" array="False" size=""/>
+            <declare name="winner" type="String" array="False" size=""/>
+            <declare name="compChoice" type="Integer" array="False" size=""/>
+            <assign variable="box1" expression="&quot;&quot;"/>
+            <assign variable="box2" expression="&quot;&quot;"/>
+            <assign variable="box3" expression="&quot;&quot;"/>
+            <assign variable="winner" expression="&quot;&quot;"/>
+            <while expression="winner = &quot;&quot;">
+                <output expression="box1 &amp; &quot;|&quot; &amp; box2 &amp; &quot;|&quot; &amp; box3" newline="True"/>
+                <input variable="choice"/>
+                <if expression="choice = 1">
+                    <then>
+                        <assign variable="box1" expression="&quot;O&quot;"/>
+                    </then>
+                    <else>
+                        <if expression="choice = 2">
+                            <then>
+                                <assign variable="box2" expression="&quot;O&quot;"/>
+                            </then>
+                            <else>
+                                <assign variable="box3" expression="&quot;O&quot;"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <assign variable="compChoice" expression="Random(3) + 1"/>
+                <if expression="compChoice = 1">
+                    <then>
+                        <assign variable="box1" expression="&quot;X&quot;"/>
+                    </then>
+                    <else>
+                        <if expression="compChoice = 2">
+                            <then>
+                                <assign variable="box2" expression="&quot;X&quot;"/>
+                            </then>
+                            <else>
+                                <assign variable="box3" expression="&quot;X&quot;"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <if expression="(box1 = &quot;O&quot; And box2 = &quot;O&quot;) Or (box1 = &quot;O&quot; And box3 = &quot;O&quot;) Or (box2 = &quot;O&quot; And box3 = &quot;O&quot;)">
+                    <then>
+                        <assign variable="winner" expression="&quot;User&quot;"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="(box1 = &quot;X&quot; And box2 = &quot;X&quot;) Or (box1 = &quot;X&quot; And box3 = &quot;X&quot;) Or (box2 = &quot;X&quot; And box3 = &quot;X&quot;)">
+                    <then>
+                        <assign variable="winner" expression="&quot;Computer&quot;"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="box1 &lt;&gt; &quot;&quot; and box2 &lt;&gt; &quot;&quot; and box3 &lt;&gt; &quot;&quot; and winner = &quot;&quot;">
+                    <then>
+                        <assign variable="winner" expression="&quot;Draw&quot;"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
